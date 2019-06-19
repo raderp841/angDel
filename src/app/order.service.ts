@@ -67,4 +67,22 @@ export class OrderService {
     this.isEdittingOrderChange.emit(this.isEdittingOrder);
     this.currentOrderChange.emit(this.currentOrder);
   }
+
+  stopEdit() {
+    this.isEdittingOrder = false;
+    this.isEdittingOrderChange.emit(this.isEdittingOrder);
+  }
+
+  editOrderSave(orderName: string, pickupName: string, phoneNumber: number, orderType: string) {
+    this.currentOrder.orderName = orderName;
+    this.currentOrder.pickupName = pickupName;
+    this.currentOrder.phoneNumber = phoneNumber;
+    this.currentOrder.orderType = orderType;
+    this.currentOrderChange.emit(this.currentOrder);
+
+    var index = this.orders.findIndex(k => k.orderId == this.currentOrder.orderId);
+    this.orders[index] = this.currentOrder;
+    this.currentStoreChange.emit(this.orders.filter(order => order.storeId == this.currentStoreId));
+    this.stopEdit();
+  }
 }

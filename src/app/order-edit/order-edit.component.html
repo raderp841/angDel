@@ -1,5 +1,6 @@
 
 <h4>Edit</h4>
+
 <div class="col-md-6 form-group">
   <label for="orderName">Order Name</label>
   <input type="text"
@@ -11,28 +12,29 @@
 <div class="col-md-6 form-group">
   <label for="pickupName">Pickup Name</label>
   <input type="text"
-         id="orderName"
+         id="pickupName"
          class="form-control"
-         [value]="currentOrder.orderName"
-         #orderNameInput />
+         [value]="currentOrder.pickupName"
+         #pickupNameInput />
 </div>
 <div class="col-md-6 form-group">
-  <label for="orderName">Order Name</label>
-  <input type="text"
-         id="orderName"
+  <label for="phoneNumber">Phone Number</label>
+  <input type="number"
+         id="phoneNumber"
          class="form-control"
-         [value]="currentOrder.orderName"
-         #orderNameInput />
+         [value]="currentOrder.phoneNumber"
+         #phoneNumberInput />
 </div>
 <div class="col-md-6 form-group">
-  <label for="orderName">Order Name</label>
+  <label for="orderType">Order Type</label>
   <input type="text"
-         id="orderName"
+         id="orderType"
          class="form-control"
-         [value]="currentOrder.orderName"
-         #orderNameInput />
+         [value]="currentOrder.orderType"
+         #orderTypeInput />
 </div>
-<p>{{ currentOrder.pickupName }}</p>
-<p>{{ currentOrder.orderName }}</p>
-<p>{{ currentOrder.orderType }}</p>
-<p>{{ currentOrder.phoneNumber }}</p>
+
+<div class="col-md-12">
+  <button class="btn btn-primary" (click)="onEditOrder(orderNameInput, pickupNameInput, phoneNumberInput, orderTypeInput)">Save Changes</button>
+  <button class="btn btn-danger">Delete Order</button>
+</div>

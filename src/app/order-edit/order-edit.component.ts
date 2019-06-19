@@ -21,4 +21,9 @@ export class OrderEditComponent implements OnInit {
       .subscribe((order: Order) => { this.currentOrder = order; })
   }
 
+  onEditOrder(orderNameEl: HTMLInputElement, pickupNameEl: HTMLInputElement, phonenumberEl: HTMLInputElement, orderTypeEl: HTMLInputElement) {
+    console.log('order edit in progress');
+    this.orderService.editOrderSave(orderNameEl.value, pickupNameEl.value, +phonenumberEl.value, orderTypeEl.value);
+  }
+
 }
