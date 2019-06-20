@@ -59,6 +59,7 @@ export class OrderService {
     this.currentOrderId = orderId;
     this.currentOrder = this.orders.find(order => order.orderId === orderId);
     this.currentOrderChange.emit(this.currentOrder);
+    return this.currentOrder;
   }
 
   editOrder(order: Order) {

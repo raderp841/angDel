@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 import { Order } from '../shared/order.model';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -13,7 +14,7 @@ export class OrderListComponent implements OnInit {
   isEditingOrder: boolean = false;
   currentOrder: Order;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.orders = this.orderService.getOrdersByStoreId(this.orderService.currentStoreId);
@@ -43,6 +44,10 @@ export class OrderListComponent implements OnInit {
         }
       );
 
+    this.route.params
+      .subscribe((params: Params) => {
+        this.orders = this.orderService.getOrdersByStoreId(+params['id']);
+      });
 
   }
   

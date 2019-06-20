@@ -10,8 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { StoreListComponent } from './store-list/store-list.component';
 import { StoreComponent } from './store/store.component';
 import { StoreService } from './store.service';
-import { GeneralService } from './general.service';
 import { OrderService } from './order.service';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { OrderService } from './order.service';
     UsersComponent,
     HeaderComponent,
     StoreListComponent,
-    StoreComponent
+    StoreComponent,
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [StoreService, GeneralService, OrderService],
+  providers: [StoreService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

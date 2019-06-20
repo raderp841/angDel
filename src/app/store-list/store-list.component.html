@@ -1,3 +1,4 @@
-<app-store *ngFor="let store of stores"
+<app-store *ngFor="let store of stores; let i = index"
            [store] ="store"
+           [routerLink]="['/', store.storeId, 'orders']"
            ></app-store>

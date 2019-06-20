@@ -1,9 +1,7 @@
-<div *ngIf="!isEditingOrder; else editTemp">
+<div *ngIf="!isEditingOrder">
   <app-order *ngFor="let order of orders"
              [order]="order"
              >
   </app-order>
 </div>
-<ng-template #editTemp>
-  <app-order-edit></app-order-edit>
-</ng-template>
+<router-outlet></router-outlet>

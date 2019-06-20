@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralService } from './general.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,10 @@ import { GeneralService } from './general.service';
 export class AppComponent implements OnInit {
   title = 'AnglarDeliProject';
   showStores: boolean;
-  constructor(private generalService: GeneralService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.showStores = this.generalService.checkShowStores();
-    this.generalService.showStoresChange
-      .subscribe(
-      (show: boolean) => {
-        this.showStores = show;
-      });
+    
   }
 
 }
